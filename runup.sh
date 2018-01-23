@@ -10,6 +10,8 @@ case $1 in
 	install)
 		echo "Install"
         echo ""
+        git submodule init
+        git submodule update
         cd laradock/
         cp env-example .env
         docker-compose up -d workspace
@@ -17,13 +19,14 @@ case $1 in
         cd ..
         cp -Rf SOURCESDIR/* ./
         rm -Rf SOURCESDIR/
-        #docker-compose down workspace
+        chmod 777 -R bootstrap/cache/
+        chmod 777 -R storage/
 		;;
 	laravel)
 		echo "laravel"
 		break
 		;;
 	*)
-		echo "Sorry, I don't understand"
+		echo "Sorry :( I don't understand"
 		;;
 esac
