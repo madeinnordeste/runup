@@ -16,10 +16,10 @@ case $1 in
         #cp env-example .env
         docker-compose up -d workspace
         docker-compose exec --user=laradock workspace composer create-project laravel/laravel $SOURCESDIR --prefer-dist
-        chmod -R 777 $SOURCESDIR/bootstrap/cache/
-        chmod -R 777 $SOURCESDIR/storage/
         cp -Rf $SOURCESDIR/* ./
         rm -Rf $SOURCESDIR/
+        chmod -R 777 ./bootstrap/cache/
+        chmod -R 777 ./storage/
         #docker-compose down workspace
         #docker-compose up -d workspace
         
