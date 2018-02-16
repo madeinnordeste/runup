@@ -25,13 +25,6 @@ case $1 in
         rm -Rf $SOURCESDIR/
         ;;
 
-	reclone)
-        echo ""
-		echo "Re-clone gitrepo"
-        echo ""
-		git clone git@github.com:madeinnordeste/runup.git .
-		;;
-
 	*)
         echo ""
 		echo "Sorry :( I don't understand\n"
